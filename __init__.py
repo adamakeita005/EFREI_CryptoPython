@@ -4,12 +4,12 @@ from cryptography.fernet import Fernet
 app = Flask(__name__)
 
 
-key = 7580b9636ac84da59a43b106bf6e9cd0
+key = b'XxkYkXb2sQ6e7kJ7VnZbKq3W2U0l7y8M1QpT9YxA0s='
 fernet = Fernet(key)
 
 @app.route("/")
 def index():
-    return "Bonjourtoutlemonde"
+    return "14"
 
 @app.route("/encrypt/<value>")
 def encrypt(value):
