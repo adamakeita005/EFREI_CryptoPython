@@ -1,10 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask
 from cryptography.fernet import Fernet
 
 app = Flask(__name__)
 
-# clé de test (suffisant pour le TP)
-key = gAAAAABpbvOViTlMNHxknf3qSx1l1IZDub3qjxMqUMHfreBkPTPtQixN_XKTgg_AmWYHxNmHoudEab072JBulbaZ2sM8qfFtoB1lCBiCtGKYGmyE8FiI-64=
+
+key = b'COLLE_ICI_LA_CLE_GENEREE'
 fernet = Fernet(key)
 
 @app.route("/")
@@ -14,22 +14,12 @@ def index():
 @app.route("/encrypt/<value>")
 def encrypt(value):
     token = fernet.encrypt(value.encode())
-    return token.decode()
+    return f"Valeur encryptée : {token.decode()}"
 
-from flask import Flask, render_template
-from cryptography.fernet import Fernet
-
-app = Flask(__name__)
-
-# clé de test (suffisant pour le TP)
-key = Fernet.generate_key()
-fernet = Fernet(key)
-
-@app.route("/")
-def index():
-    return "Bonjourtoutlemonde"
-
-@app.route("/encrypt/<value>")
-def encrypt(value):
-    token = fernet.encrypt(value.encode())
-    return token.decode()
+@app.route("/decrypt/<token>")
+def decrypt(token):
+    try:
+        value = fernet.decrypt(token.encode()).decode()
+        return f"Valeur décryptée : {value}"
+    except:
+        return "Erreur de décryptage"
