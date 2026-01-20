@@ -9,7 +9,7 @@ fernet = Fernet(key)
 
 @app.route("/")
 def index():
-    return "API CryptoPython OK"
+    return "Bonjourtoutlemonde"
 
 @app.route("/encrypt/<value>")
 def encrypt(value):
@@ -27,7 +27,7 @@ fernet = Fernet(key)
 
 @app.route("/")
 def index():
-    return "API CryptoPython OK"
+    return "Bonjourtoutlemonde"
 
 @app.route("/encrypt/<value>")
 def encrypt(value):
