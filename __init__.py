@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 app = Flask(__name__)
 
 
-key = b'COLLE_ICI_LA_CLE_GENEREE'
+key = 7580b9636ac84da59a43b106bf6e9cd0
 fernet = Fernet(key)
 
 @app.route("/")
