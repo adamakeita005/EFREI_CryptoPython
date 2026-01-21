@@ -8,8 +8,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: "ssh-adamakeita.alwaysdata.net"
-          username: adamakeita
-          password: Messil10@10
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           script: |
             cd $HOME/www/
   Copy:
@@ -20,8 +20,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: "ssh-adamakeita.alwaysdata.net"
-          username: adamakeita
-          password: Messil10@10
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           script: |
             last_directory=$(basename ${{ runner.workspace }})
             cd $HOME/www/
